@@ -1,0 +1,90 @@
+<h2>Hero Section — Layout-Vorschlag</h2>
+<p class="subtitle">Asymmetrisch (taste-skill DESIGN_VARIANCE 8): Text links, visuelles Element rechts. Kein zentrierter Headline-Block.</p>
+
+<div class="mockup" style="margin-top:1.5rem;">
+  <div class="mockup-header">J. Studio — Hero Section (Desktop ~1400px)</div>
+  <div class="mockup-body" style="background:#f8f7f4; padding:0; overflow:hidden; border-radius:0 0 8px 8px;">
+
+    <!-- Navbar -->
+    <div style="display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2.5rem;border-bottom:1px solid #e8e4de;">
+      <div style="font-size:1rem;font-weight:800;letter-spacing:-0.5px;color:#111;">J. <span style="color:#2d6a4f;">Studio</span></div>
+      <div style="display:flex;gap:2rem;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#888;">
+        <span>Über mich</span><span>Projekte</span><span>Kontakt</span>
+      </div>
+      <div style="background:#2d6a4f;color:#fff;padding:7px 18px;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;">Gespräch starten</div>
+    </div>
+
+    <!-- Hero Split Layout -->
+    <div style="display:grid;grid-template-columns:1.1fr 0.9fr;min-height:320px;">
+
+      <!-- Left: Text Block -->
+      <div style="padding:3rem 2.5rem 3rem 2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1.2rem;">
+        <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#2d6a4f;font-weight:600;">Web-Agentur · Allgäu</div>
+        <div style="font-size:2.6rem;font-weight:800;letter-spacing:-2px;line-height:1.05;color:#111;">
+          Websites für<br/>
+          <em style="font-style:italic;font-weight:300;color:#555;">lokale</em><br/>
+          Dienstleister.
+        </div>
+        <div style="font-size:13px;color:#777;line-height:1.6;max-width:340px;">
+          Kein Marketing-Bla-Bla. Einfach eine professionelle Web-Präsenz, die neue Kunden bringt — zu einem fairen Preis.
+        </div>
+        <div style="display:flex;gap:1rem;align-items:center;margin-top:0.5rem;">
+          <div style="background:#111;color:#f8f7f4;padding:10px 24px;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;">Projekte ansehen</div>
+          <div style="font-size:11px;color:#2d6a4f;letter-spacing:1px;text-transform:uppercase;border-bottom:1px solid #2d6a4f;padding-bottom:1px;">Über mich →</div>
+        </div>
+        <!-- Social Proof Indicator -->
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-top:0.5rem;">
+          <div style="display:flex;">
+            <div style="width:24px;height:24px;border-radius:50%;background:#d4a574;border:2px solid #f8f7f4;margin-right:-8px;"></div>
+            <div style="width:24px;height:24px;border-radius:50%;background:#7fa87f;border:2px solid #f8f7f4;margin-right:-8px;"></div>
+            <div style="width:24px;height:24px;border-radius:50%;background:#8fa8c8;border:2px solid #f8f7f4;"></div>
+          </div>
+          <div style="font-size:10px;color:#888;letter-spacing:0.5px;">Vertrauen von <strong style="color:#111;">lokalen Betrieben</strong> im Allgäu</div>
+        </div>
+      </div>
+
+      <!-- Right: Visual Element -->
+      <div style="background:#f0ede8;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+        <!-- Abstract decorative elements -->
+        <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;border-radius:50%;background:rgba(45,106,79,0.07);"></div>
+        <div style="position:absolute;bottom:-20px;left:-20px;width:120px;height:120px;border-radius:50%;background:rgba(45,106,79,0.05);"></div>
+
+        <!-- Floating Project Card Mockup -->
+        <div style="background:#fff;border:1px solid #e8e4de;border-radius:12px;padding:1rem 1.2rem;width:200px;box-shadow:0 8px 24px -8px rgba(0,0,0,0.08);position:relative;z-index:1;">
+          <div style="width:100%;height:90px;background:linear-gradient(135deg,#1a1a2e,#7c3aed22);border-radius:6px;margin-bottom:0.75rem;display:flex;align-items:center;justify-content:center;">
+            <div style="font-size:9px;color:#888;letter-spacing:2px;text-transform:uppercase;">carwellness-allgäu.de</div>
+          </div>
+          <div style="font-size:11px;font-weight:700;color:#111;margin-bottom:2px;">Carwellness Allgäu</div>
+          <div style="font-size:9px;color:#2d6a4f;letter-spacing:1px;text-transform:uppercase;">Kfz-Aufbereitung · Live →</div>
+        </div>
+
+        <!-- Second overlapping card -->
+        <div style="background:#fff;border:1px solid #e8e4de;border-radius:12px;padding:1rem 1.2rem;width:160px;box-shadow:0 8px 24px -8px rgba(0,0,0,0.06);position:absolute;bottom:30px;right:20px;z-index:2;transform:rotate(3deg);">
+          <div style="width:100%;height:60px;background:#e8f5ee;border-radius:6px;margin-bottom:0.5rem;"></div>
+          <div style="font-size:10px;font-weight:700;color:#111;margin-bottom:2px;">Alltec Vermietung</div>
+          <div style="font-size:8px;color:#999;letter-spacing:1px;text-transform:uppercase;">In Arbeit</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll hint -->
+    <div style="text-align:center;padding:0.75rem;border-top:1px solid #e8e4de;">
+      <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#bbb;">↓ Scroll</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="section" style="margin-top:1.5rem;">
+  <h3>Was passiert bei Scroll-Animationen:</h3>
+  <ul style="margin-top:0.75rem;display:flex;flex-direction:column;gap:0.5rem;">
+    <li style="font-size:13px;color:#555;">• Navbar fixiert sich oben, wird bei Scroll leicht glassmorphic (backdrop-blur)</li>
+    <li style="font-size:13px;color:#555;">• Headline fährt von links ein (staggered, Framer Motion spring)</li>
+    <li style="font-size:13px;color:#555;">• Die floating Project-Cards tippen von rechts rein mit leichtem Tilt</li>
+    <li style="font-size:13px;color:#555;">• CTA-Button hat Directional-Hover: Fill kommt von der Seite wo die Maus eintritt</li>
+    <li style="font-size:13px;color:#555;">• Subtiles Parallax auf dem Hintergrunds-Kreis (rechte Seite)</li>
+  </ul>
+</div>
+
+<p class="subtitle" style="margin-top:1.5rem;">Sieht das gut aus? Oder soll ich etwas am Hero-Layout ändern?</p>

@@ -1,0 +1,131 @@
+<h2>Über mich + Portfolio — Layout-Vorschlag</h2>
+<p class="subtitle">Scroll von oben nach unten: erst persönlich, dann die Arbeit.</p>
+
+<!-- ÜBER MICH -->
+<div class="mockup" style="margin-top:1.5rem;">
+  <div class="mockup-header">Sektion 2 — Über mich</div>
+  <div class="mockup-body" style="background:#f8f7f4;padding:0;border-radius:0 0 8px 8px;">
+    <div style="display:grid;grid-template-columns:0.9fr 1.1fr;min-height:280px;">
+
+      <!-- Left: Photo placeholder + stats -->
+      <div style="background:#f0ede8;padding:2.5rem;display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start;">
+        <div style="width:100px;height:100px;border-radius:16px;background:#ddd;display:flex;align-items:center;justify-content:center;border:1px solid #e0dbd5;">
+          <div style="font-size:9px;color:#aaa;letter-spacing:1px;">Foto</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:1rem;width:100%;">
+          <div style="border-top:1px solid #e0dbd5;padding-top:1rem;">
+            <div style="font-size:1.8rem;font-weight:800;color:#111;letter-spacing:-1px;">2+</div>
+            <div style="font-size:10px;color:#888;letter-spacing:1.5px;text-transform:uppercase;">Projekte abgeschlossen</div>
+          </div>
+          <div style="border-top:1px solid #e0dbd5;padding-top:1rem;">
+            <div style="font-size:1.8rem;font-weight:800;color:#2d6a4f;letter-spacing:-1px;">100%</div>
+            <div style="font-size:10px;color:#888;letter-spacing:1.5px;text-transform:uppercase;">Zufriedene Kunden</div>
+          </div>
+          <div style="border-top:1px solid #e0dbd5;padding-top:1rem;">
+            <div style="font-size:1.8rem;font-weight:800;color:#111;letter-spacing:-1px;">Fair</div>
+            <div style="font-size:10px;color:#888;letter-spacing:1.5px;text-transform:uppercase;">Preise ohne Überraschungen</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Text -->
+      <div style="padding:2.5rem;display:flex;flex-direction:column;justify-content:center;gap:1rem;">
+        <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#2d6a4f;font-weight:600;">Wer steckt dahinter</div>
+        <div style="font-size:2rem;font-weight:800;letter-spacing:-1.5px;color:#111;line-height:1.1;">Hi, ich bin James.<br/><em style="font-weight:300;font-style:italic;color:#666;">Webdesigner aus dem Allgäu.</em></div>
+        <div style="font-size:13px;color:#777;line-height:1.7;max-width:400px;">
+          Ich helfe lokalen Betrieben — Handwerkern, Dienstleistern, kleinen Shops — zu einer professionellen Website zu kommen. Keine riesigen Agenturen, kein übertriebenes Marketing. Einfach eine Website, die funktioniert und neue Kunden bringt.
+        </div>
+        <div style="font-size:13px;color:#777;line-height:1.7;max-width:400px;">
+          Ich arbeite direkt mit dir — ohne Umwege, ohne Zwischenhändler. Du bekommst genau das was du brauchst, zu einem Preis der passt.
+        </div>
+        <div style="display:flex;gap:0.75rem;margin-top:0.5rem;">
+          <div style="background:#2d6a4f;color:#fff;padding:8px 20px;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:600;">Jetzt Kontakt aufnehmen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div class="mockup" style="margin-top:1.5rem;">
+  <div class="mockup-header">Sektion 3 — Portfolio (Cards + Morphing Modal)</div>
+  <div class="mockup-body" style="background:#f8f7f4;padding:2rem;border-radius:0 0 8px 8px;">
+
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:1.5rem;">
+      <div>
+        <div style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:#2d6a4f;font-weight:600;margin-bottom:0.5rem;">Meine Arbeit</div>
+        <div style="font-size:1.8rem;font-weight:800;letter-spacing:-1.5px;color:#111;">Projekte.</div>
+      </div>
+      <div style="font-size:10px;color:#aaa;letter-spacing:1px;text-transform:uppercase;">2 Projekte · mehr folgen</div>
+    </div>
+
+    <!-- Asymmetric Grid: 60/40 split, not 3 equal cards (taste-skill rule) -->
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:1rem;">
+
+      <!-- Card 1: Large (Carwellness) -->
+      <div style="background:#fff;border:1px solid #e8e4de;border-radius:16px;overflow:hidden;cursor:pointer;position:relative;">
+        <div style="height:160px;background:linear-gradient(135deg,#060608 0%,#1a1a2e 60%,#2d1b4e 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:120px;height:120px;border-radius:50%;background:rgba(124,58,237,0.1);"></div>
+          <div style="font-size:11px;color:#888;letter-spacing:2px;z-index:1;">carwellness-allgäu.de</div>
+          <!-- Live badge -->
+          <div style="position:absolute;top:12px;right:12px;background:#2d6a4f;color:#fff;padding:3px 10px;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;border-radius:20px;">Live</div>
+        </div>
+        <div style="padding:1.2rem;">
+          <div style="font-size:14px;font-weight:700;color:#111;margin-bottom:4px;">Carwellness Allgäu</div>
+          <div style="font-size:11px;color:#888;margin-bottom:0.75rem;">Kfz-Aufbereitung · Full Website</div>
+          <div style="display:flex;gap:0.5rem;">
+            <div style="background:#f0f0f0;color:#666;padding:3px 10px;font-size:9px;letter-spacing:1px;text-transform:uppercase;border-radius:20px;">Next.js</div>
+            <div style="background:#f0f0f0;color:#666;padding:3px 10px;font-size:9px;letter-spacing:1px;text-transform:uppercase;border-radius:20px;">Animation</div>
+            <div style="background:#e8f5ee;color:#2d6a4f;padding:3px 10px;font-size:9px;letter-spacing:1px;text-transform:uppercase;border-radius:20px;">Lokal</div>
+          </div>
+        </div>
+        <!-- Hover hint -->
+        <div style="position:absolute;inset:0;border:2px solid transparent;border-radius:16px;transition:border-color 0.3s;"></div>
+        <div style="font-size:8px;color:#ccc;text-align:center;padding-bottom:8px;letter-spacing:1px;">Klick → Modal öffnet sich</div>
+      </div>
+
+      <!-- Card 2: Smaller (Alltec) -->
+      <div style="background:#fff;border:1px solid #e8e4de;border-radius:16px;overflow:hidden;cursor:pointer;position:relative;">
+        <div style="height:130px;background:linear-gradient(135deg,#1a3a2a,#2d6a4f22);display:flex;align-items:center;justify-content:center;position:relative;">
+          <div style="font-size:10px;color:#888;letter-spacing:2px;">alltec-vermietung.de</div>
+          <div style="position:absolute;top:12px;right:12px;background:#f0ede8;color:#888;padding:3px 10px;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;border-radius:20px;">In Arbeit</div>
+        </div>
+        <div style="padding:1rem;">
+          <div style="font-size:13px;font-weight:700;color:#111;margin-bottom:3px;">Alltec Anhängervermietung</div>
+          <div style="font-size:10px;color:#888;margin-bottom:0.75rem;">Vermietung · Landing Page</div>
+          <div style="display:flex;gap:0.4rem;">
+            <div style="background:#f0f0f0;color:#666;padding:3px 8px;font-size:8px;letter-spacing:1px;text-transform:uppercase;border-radius:20px;">Vercel</div>
+            <div style="background:#e8f5ee;color:#2d6a4f;padding:3px 8px;font-size:8px;letter-spacing:1px;text-transform:uppercase;border-radius:20px;">Lokal</div>
+          </div>
+        </div>
+        <div style="font-size:8px;color:#ccc;text-align:center;padding-bottom:8px;letter-spacing:1px;">Klick → Modal öffnet sich</div>
+      </div>
+
+      <!-- Placeholder Card "Dein Projekt?" -->
+      <div style="grid-column:1/-1;background:#f8f7f4;border:1px dashed #d0cbc4;border-radius:16px;padding:1.5rem;display:flex;align-items:center;justify-content:space-between;">
+        <div>
+          <div style="font-size:12px;font-weight:600;color:#aaa;">Dein Betrieb könnte hier stehen.</div>
+          <div style="font-size:11px;color:#bbb;margin-top:3px;">Ich freue mich auf neue Projekte im Allgäu.</div>
+        </div>
+        <div style="background:#2d6a4f;color:#fff;padding:8px 18px;font-size:9px;letter-spacing:2px;text-transform:uppercase;font-weight:600;">Anfragen →</div>
+      </div>
+
+    </div>
+
+    <!-- Modal Preview (simplified) -->
+    <div style="margin-top:1.5rem;border:1px solid #e0dbd5;border-radius:12px;padding:1rem;background:#fafaf8;">
+      <div style="font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#aaa;margin-bottom:0.75rem;">Modal (öffnet sich über die Card)</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div style="background:#e8e4de;border-radius:8px;height:80px;display:flex;align-items:center;justify-content:center;font-size:9px;color:#aaa;">Screenshot / Preview</div>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;justify-content:center;">
+          <div style="font-size:13px;font-weight:700;color:#111;">Carwellness Allgäu</div>
+          <div style="font-size:10px;color:#777;">Kurze Projektbeschreibung — was wurde gebaut, was war die Herausforderung.</div>
+          <div style="background:#2d6a4f;color:#fff;padding:5px 12px;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;width:fit-content;">Live ansehen →</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<p class="subtitle" style="margin-top:1.5rem;">Scroll-Animationen: Cards fahren beim Einscroll von unten rein (staggered), Grid ist asymmetrisch (60/40 statt 3 gleiche Karten — taste-skill Regel). Sieht das gut aus?</p>

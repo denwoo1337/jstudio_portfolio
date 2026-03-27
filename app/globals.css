@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background:  #050508;
+  --foreground:  #f0f0ff;
+  --muted:       #6b7180;
+  --border:      rgba(120, 60, 220, 0.18);
+  --surface:     #0d0d16;
+  --card:        #12121e;
+  --accent-1:    #7c3aed;
+  --accent-2:    #c026d3;
+  --accent-3:    #2563eb;
+  --glow-1:      rgba(124, 58, 237, 0.35);
+  --glow-2:      rgba(192, 38, 211, 0.35);
+  --dark-section: #050508;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Gradient text ────────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-animated {
+  background: linear-gradient(
+    135deg,
+    var(--accent-1) 0%,
+    var(--accent-2) 50%,
+    var(--accent-3) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 6s ease infinite;
+}
+
+/* ── Gradient button ─────────────────────────────────────────── */
+.gradient-btn {
+  background: linear-gradient(135deg, var(--accent-1) 0%, var(--accent-2) 100%);
+  color: #fff;
+  transition: opacity 0.2s, box-shadow 0.2s;
+}
+.gradient-btn:hover {
+  opacity: 0.88;
+  box-shadow: 0 0 28px var(--glow-1);
+}
+
+/* ── Glow border ─────────────────────────────────────────────── */
+.glow-border {
+  border: 1px solid var(--border);
+  box-shadow: 0 0 0 0 transparent;
+  transition: box-shadow 0.3s;
+}
+.glow-border:hover {
+  box-shadow: 0 0 20px var(--glow-1);
+}
+
+/* ── Keyframe animations ─────────────────────────────────────── */
+@keyframes blob-float {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  25%       { transform: translate(30px, -40px) scale(1.05); }
+  50%       { transform: translate(-20px, 20px) scale(0.97); }
+  75%       { transform: translate(15px, 35px) scale(1.03); }
+}
+
+@keyframes blob-pulse {
+  0%, 100% { opacity: 0.25; }
+  50%       { opacity: 0.40; }
+}
+
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
