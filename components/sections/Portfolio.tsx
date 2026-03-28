@@ -88,7 +88,7 @@ export default function Portfolio() {
         className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr] gap-6 relative z-10"
       >
         {/* Card 1 — large */}
-        <motion.div variants={cardVariants}>
+        <motion.div variants={cardVariants} className="h-[460px] md:h-[600px]">
           <ProjectCard
             project={projects[0]}
             onClick={setSelectedProject}

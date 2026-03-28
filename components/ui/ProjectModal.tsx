@@ -16,9 +16,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const [mounted, setMounted] = useState(false);
   const [iframeLoading, setIframeLoading] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
   }, []);
 
   useEffect(() => {
@@ -72,7 +77,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               className="relative flex-1 min-h-0"
               style={{ background: project.previewColor }}
             >
-              {project.embedUrl ? (
+              {project.embedUrl && !isMobile ? (
                 <>
                   {/* Loading state */}
                   <AnimatePresence>
@@ -158,25 +163,27 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               layoutId={`project-content-${project.id}`}
               className="flex-shrink-0 p-5 md:p-7"
             >
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex items-center gap-3 min-w-0">
-                  <motion.h2
-                    layoutId={`project-title-${project.id}`}
-                    className="font-display font-extrabold text-foreground text-xl md:text-2xl tracking-tight leading-none"
-                  >
-                    {project.title}
-                  </motion.h2>
-                  <motion.span
-                    layoutId={`project-badge-${project.id}`}
-                    className={`flex-shrink-0 inline-flex text-xs px-2.5 py-1 rounded-full font-body ${
-                      isLive
-                        ? "gradient-btn"
-                        : "bg-[var(--surface)] text-muted border border-[var(--border)]"
-                    }`}
-                  >
-                    {project.status}
-                  </motion.span>
-                  <div className="flex flex-wrap gap-2">
+              <div className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+                <div className="flex flex-col gap-2 md:flex-row md:items-center md:gap-3 min-w-0">
+                  <div className="flex items-center gap-2 flex-wrap">
+                    <motion.h2
+                      layoutId={`project-title-${project.id}`}
+                      className="font-display font-extrabold text-foreground text-xl md:text-2xl tracking-tight leading-none"
+                    >
+                      {project.title}
+                    </motion.h2>
+                    <motion.span
+                      layoutId={`project-badge-${project.id}`}
+                      className={`flex-shrink-0 inline-flex text-xs px-2.5 py-1 rounded-full font-body ${
+                        isLive
+                          ? "gradient-btn"
+                          : "bg-[var(--surface)] text-muted border border-[var(--border)]"
+                      }`}
+                    >
+                      {project.status}
+                    </motion.span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
                     {project.tags.map((tag) => (
                       <span
                         key={tag}
@@ -193,7 +200,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     href={project.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-shrink-0 flex items-center gap-2 gradient-btn font-body text-sm px-5 py-2.5 rounded-full"
+                    className="flex-shrink-0 flex items-center justify-center gap-2 gradient-btn font-body text-sm px-5 py-2.5 rounded-full"
                   >
                     Website ansehen
                     <ArrowSquareOut size={16} />

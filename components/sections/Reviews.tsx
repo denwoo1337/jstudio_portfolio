@@ -60,11 +60,11 @@ export default function Reviews() {
         </p>
 
         <h2 className="font-display font-extrabold tracking-tighter leading-none text-4xl md:text-6xl text-foreground uppercase">
-          Echte Ergebnisse.
+          Kunden sprechen.{" "}
+          <span className="font-light italic text-muted normal-case text-3xl md:text-4xl">
+            Aus dem Allgäu.
+          </span>
         </h2>
-        <p className="font-display font-light italic text-4xl md:text-5xl tracking-tighter leading-none gradient-text mt-1">
-          Echte Menschen.
-        </p>
       </motion.div>
 
       <motion.div

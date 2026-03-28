@@ -64,11 +64,11 @@ export default function Contact() {
           KONTAKT
         </p>
         <h2 className="font-display font-extrabold tracking-tighter leading-none text-4xl md:text-6xl text-foreground uppercase">
-          Lass uns reden.
+          Lass uns reden.{" "}
+          <span className="font-light italic text-muted normal-case text-3xl md:text-4xl">
+            Kein Bullshit.
+          </span>
         </h2>
-        <p className="font-display font-light italic text-3xl md:text-4xl tracking-tight leading-none gradient-text mt-1">
-          Kein Bullshit.
-        </p>
       </motion.div>
 
       {/* Grid */}

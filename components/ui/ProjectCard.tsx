@@ -39,7 +39,7 @@ export default function ProjectCard({ project, onClick, className = "" }: Projec
       {/* Preview */}
       <motion.div
         layoutId={`project-preview-${project.id}`}
-        className="relative flex-1 min-h-[200px] overflow-hidden"
+        className="relative flex-1 min-h-[260px] overflow-hidden"
         style={{ background: project.previewColor }}
       >
         {project.image ? (
