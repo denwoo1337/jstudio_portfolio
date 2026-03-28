@@ -1,10 +1,11 @@
 "use client"
 
-import { User, Briefcase, MessageCircle } from "lucide-react"
+import { User, Briefcase, MessageCircle, Workflow } from "lucide-react"
 import { TubeLightNavbar } from "@/components/ui/tube-light-navbar"
 
 const navItems = [
   { name: "Über mich", href: "#about", icon: User },
+  { name: "Prozess", href: "#process", icon: Workflow },
   { name: "Projekte", href: "#portfolio", icon: Briefcase },
   { name: "Kontakt", href: "#contact", icon: MessageCircle },
 ]
