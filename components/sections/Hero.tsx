@@ -8,6 +8,7 @@ import {
   type Variants,
 } from "framer-motion";
 import HeroShutterText from "@/components/ui/hero-shutter-text";
+import CyclingHeadline from "@/components/ui/cycling-headline";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -42,7 +43,7 @@ export default function Hero() {
     >
       <motion.div
         style={{ filter, opacity, scale }}
-        className="absolute inset-0 flex items-center justify-center px-6 md:px-12 lg:px-20 pt-20 md:pt-0"
+        className="absolute inset-0 flex flex-col items-center px-6 md:px-12 lg:px-20"
       >
         {/* Video Background */}
         <video
@@ -63,12 +64,12 @@ export default function Hero() {
           style={{ animationDelay: "-13s" }}
         />
 
-        {/* Content */}
+        {/* Centered headline content */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center text-center relative z-10 max-w-3xl"
+          className="flex-1 flex flex-col items-center justify-center text-center relative z-10 max-w-3xl"
         >
           {/* Eyebrow */}
           <motion.p
@@ -84,8 +85,17 @@ export default function Hero() {
               lines={[
                 { text: "Dein" },
                 { text: "Betrieb." },
-                { text: "Deine", gradient: true },
-                { text: "Website.", gradient: true },
+              ]}
+            />
+            <CyclingHeadline
+              phrases={[
+                "Deine Webseite.",
+                "Dein Auftritt.",
+                "Dein Kundenmagnet.",
+                "Dein Kundengewinner.",
+                "Deine Bühne.",
+                "Dein Vertrieb.",
+                "Dein Vorsprung.",
               ]}
             />
           </motion.div>
@@ -93,15 +103,23 @@ export default function Hero() {
           {/* Body copy */}
           <motion.p
             variants={itemVariants}
-            className="font-body text-base md:text-lg text-muted leading-relaxed max-w-md mt-6 mx-auto"
+            className="font-body text-sm md:text-base text-white/80 leading-relaxed max-w-md mt-6 mx-auto"
           >
             Professionelle Webpräsenz für Allgäuer Handwerker — fair, direkt, ohne Umwege.
           </motion.p>
+        </motion.div>
 
+        {/* Bottom: CTAs + Social proof */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="flex flex-col items-center gap-6 relative z-10 pb-10 md:pb-14"
+        >
           {/* CTAs */}
           <motion.div
             variants={itemVariants}
-            className="mt-8 flex gap-4 flex-wrap items-center"
+            className="flex gap-4 flex-wrap items-center justify-center"
           >
             <button
               onClick={() => scrollToSection("portfolio")}
@@ -120,7 +138,7 @@ export default function Hero() {
           {/* Social proof */}
           <motion.div
             variants={itemVariants}
-            className="mt-8 flex items-center gap-3"
+            className="flex items-center gap-3"
           >
             <div className="flex items-center">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#c026d3] text-white flex items-center justify-center font-body text-[10px] font-semibold z-30 ring-2 ring-[var(--background)]">
