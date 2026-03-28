@@ -1,9 +1,11 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import {
   motion,
   useScroll,
   useTransform,
+  useSpring,
   useMotionTemplate,
   type Variants,
 } from "framer-motion";
@@ -29,11 +31,30 @@ function scrollToSection(id: string) {
 }
 
 export default function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    setIsMobile(mq.matches);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   const { scrollY } = useScroll();
-  const blurPx = useTransform(scrollY, [0, 500], [0, 14]);
-  const opacity = useTransform(scrollY, [0, 500], [1, 0.5]);
-  const scale = useTransform(scrollY, [0, 500], [1, 0.92]);
+
+  const scaleRaw = useTransform(scrollY, [0, 700], [1, 0.9]);
+  const blurRaw = useTransform(scrollY, [0, 700], [0, 10]);
+  const opacityRaw = useTransform(scrollY, [0, 700], [1, 0.55]);
+
+  const springConfig = { stiffness: 80, damping: 25, mass: 0.5 };
+  const scale = useSpring(scaleRaw, springConfig);
+  const blurPx = useSpring(blurRaw, springConfig);
+  const opacity = useSpring(opacityRaw, springConfig);
+
   const filter = useMotionTemplate`blur(${blurPx}px)`;
+
+  const scrollStyle = isMobile ? {} : { filter, opacity, scale };
 
   return (
     <section
@@ -41,7 +62,7 @@ export default function Hero() {
       className="sticky top-0 z-0 min-h-[100dvh] overflow-hidden"
     >
       <motion.div
-        style={{ filter, opacity, scale }}
+        style={scrollStyle}
         className="absolute inset-0 flex flex-col px-6 md:px-12 lg:px-20 pt-20"
       >
         {/* Video Background */}
