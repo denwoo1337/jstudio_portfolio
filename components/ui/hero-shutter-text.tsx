@@ -38,6 +38,7 @@ export default function HeroShutterText({ lines, className = "" }: HeroShutterTe
                     {char === " " ? "\u00A0" : char}
                   </motion.span>
 
+
                   {/* Top shutter slice — accent-1 purple */}
                   <motion.span
                     aria-hidden="true"

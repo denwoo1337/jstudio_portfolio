@@ -42,7 +42,7 @@ export default function Hero() {
     >
       <motion.div
         style={{ filter, opacity, scale }}
-        className="absolute inset-0 flex items-center justify-center px-6 md:px-12 lg:px-20 pt-20 md:pt-0"
+        className="absolute inset-0 flex flex-col px-6 md:px-12 lg:px-20 pt-20"
       >
         {/* Video Background */}
         <video
@@ -68,75 +68,81 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center text-center relative z-10 max-w-3xl"
+          className="relative z-10 flex flex-col items-center text-center flex-1 w-full max-w-3xl mx-auto"
         >
-          {/* Eyebrow */}
-          <motion.p
-            variants={itemVariants}
-            className="font-body text-[10px] uppercase tracking-[4px] gradient-text mb-6"
-          >
-            WEB-AGENTUR · ALLGÄU
-          </motion.p>
-
-          {/* Headline */}
-          <motion.div variants={itemVariants}>
-            <HeroShutterText
-              lines={[
-                { text: "Dein" },
-                { text: "Betrieb." },
-                { text: "Deine", gradient: true },
-                { text: "Website.", gradient: true },
-              ]}
-            />
-          </motion.div>
-
-          {/* Body copy */}
-          <motion.p
-            variants={itemVariants}
-            className="font-body text-base md:text-lg text-muted leading-relaxed max-w-md mt-6 mx-auto"
-          >
-            Professionelle Webpräsenz für Allgäuer Handwerker — fair, direkt, ohne Umwege.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 flex gap-4 flex-wrap items-center"
-          >
-            <button
-              onClick={() => scrollToSection("portfolio")}
-              className="gradient-btn font-body text-sm px-6 py-3 rounded-full"
+          {/* Headline group — vertically centered in remaining space */}
+          <div className="flex-1 flex flex-col items-center justify-center">
+            {/* Eyebrow */}
+            <motion.p
+              variants={itemVariants}
+              className="font-body text-[10px] uppercase tracking-[4px] gradient-text mb-6"
             >
-              Projekte ansehen
-            </button>
-            <button
-              onClick={() => scrollToSection("about")}
-              className="font-body text-sm text-muted hover:text-foreground transition-colors duration-200 border border-[var(--border)] px-6 py-3 rounded-full hover:border-[var(--accent-1)]"
-            >
-              Über mich →
-            </button>
-          </motion.div>
+              WEB-AGENTUR · ALLGÄU
+            </motion.p>
 
-          {/* Social proof */}
-          <motion.div
-            variants={itemVariants}
-            className="mt-8 flex items-center gap-3"
-          >
-            <div className="flex items-center">
-              <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#c026d3] text-white flex items-center justify-center font-body text-[10px] font-semibold z-30 ring-2 ring-[var(--background)]">
-                MK
+            {/* Headline */}
+            <motion.div variants={itemVariants}>
+              <HeroShutterText
+                lines={[
+                  { text: "Dein" },
+                  { text: "Betrieb." },
+                  { text: "Deine", gradient: true },
+                  { text: "Website.", gradient: true },
+                ]}
+              />
+            </motion.div>
+          </div>
+
+          {/* Bottom group — pinned to bottom of section */}
+          <div className="pb-10 md:pb-14 flex flex-col items-center gap-6">
+            {/* Body copy */}
+            <motion.p
+              variants={itemVariants}
+              className="font-body text-base md:text-lg text-muted leading-relaxed max-w-md mx-auto"
+            >
+              Professionelle Webpräsenz für Allgäuer Handwerker — fair, direkt, ohne Umwege.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              variants={itemVariants}
+              className="flex gap-4 flex-wrap items-center justify-center"
+            >
+              <button
+                onClick={() => scrollToSection("portfolio")}
+                className="gradient-btn font-body text-sm px-6 py-3 rounded-full"
+              >
+                Projekte ansehen
+              </button>
+              <button
+                onClick={() => scrollToSection("about")}
+                className="font-body text-sm text-muted hover:text-foreground transition-colors duration-200 border border-[var(--border)] px-6 py-3 rounded-full hover:border-[var(--accent-1)]"
+              >
+                Über mich →
+              </button>
+            </motion.div>
+
+            {/* Social proof */}
+            <motion.div
+              variants={itemVariants}
+              className="flex items-center gap-3"
+            >
+              <div className="flex items-center">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#c026d3] text-white flex items-center justify-center font-body text-[10px] font-semibold z-30 ring-2 ring-[var(--background)]">
+                  MK
+                </div>
+                <div className="w-8 h-8 rounded-full bg-[var(--card)] text-muted flex items-center justify-center font-body text-[10px] font-semibold -ml-2 z-20 ring-2 ring-[var(--background)]">
+                  SB
+                </div>
+                <div className="w-8 h-8 rounded-full bg-[var(--surface)] text-muted flex items-center justify-center font-body text-[10px] font-semibold -ml-2 z-10 ring-2 ring-[var(--background)]">
+                  TH
+                </div>
               </div>
-              <div className="w-8 h-8 rounded-full bg-[var(--card)] text-muted flex items-center justify-center font-body text-[10px] font-semibold -ml-2 z-20 ring-2 ring-[var(--background)]">
-                SB
-              </div>
-              <div className="w-8 h-8 rounded-full bg-[var(--surface)] text-muted flex items-center justify-center font-body text-[10px] font-semibold -ml-2 z-10 ring-2 ring-[var(--background)]">
-                TH
-              </div>
-            </div>
-            <p className="font-body text-xs text-muted">
-              Vertrauen von lokalen Betrieben im Allgäu
-            </p>
-          </motion.div>
+              <p className="font-body text-xs text-muted">
+                Vertrauen von lokalen Betrieben im Allgäu
+              </p>
+            </motion.div>
+          </div>
         </motion.div>
       </motion.div>
     </section>
