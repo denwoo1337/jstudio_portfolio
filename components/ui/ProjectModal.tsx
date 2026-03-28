@@ -1,8 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ArrowSquareOut } from "@phosphor-icons/react";
+import { X, ArrowSquareOut, SpinnerGap } from "@phosphor-icons/react";
 import type { Project } from "./ProjectCard";
 
 interface ProjectModalProps {
@@ -12,10 +14,16 @@ interface ProjectModalProps {
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const [mounted, setMounted] = useState(false);
+  const [iframeLoading, setIframeLoading] = useState(true);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (!project) return;
-
+    setIframeLoading(true);
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
 
@@ -32,7 +40,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   const isLive = project?.status === "Live";
 
-  return (
+  const modal = (
     <AnimatePresence>
       {project && (
         <>
@@ -52,7 +60,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <motion.div
             key={`modal-${project.id}`}
             layoutId={`project-${project.id}`}
-            className="fixed inset-4 md:inset-8 lg:inset-16 z-50 bg-[var(--card)] rounded-3xl overflow-hidden flex flex-col border border-[var(--border)]"
+            className="fixed inset-x-8 md:inset-x-28 lg:inset-x-48 top-[15vh] bottom-[15vh] z-50 bg-[var(--card)] rounded-3xl overflow-hidden flex flex-col border border-[var(--border)]"
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {/* Gradient top border */}
@@ -61,42 +69,106 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             {/* Header preview */}
             <motion.div
               layoutId={`project-preview-${project.id}`}
-              className="relative h-48 md:h-72 flex-shrink-0"
+              className="relative flex-1 min-h-0"
               style={{ background: project.previewColor }}
             >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="font-display font-extrabold text-white/20 text-8xl tracking-tight">
-                  {project.title.charAt(0)}
-                </span>
-              </div>
+              {project.embedUrl ? (
+                <>
+                  {/* Loading state */}
+                  <AnimatePresence>
+                    {iframeLoading && (
+                      <motion.div
+                        key="iframe-loader"
+                        initial={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.4 }}
+                        className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-4 bg-[var(--card)]"
+                      >
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ repeat: Infinity, duration: 1, ease: "linear" }}
+                        >
+                          <SpinnerGap size={32} weight="bold" className="text-white/50" />
+                        </motion.div>
+                        <p className="font-body text-sm text-white/30 tracking-wide">
+                          Website wird geladen…
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  <motion.iframe
+                    src={project.embedUrl}
+                    className="absolute inset-0 w-full h-full border-0"
+                    sandbox="allow-scripts allow-same-origin"
+                    title={project.title}
+                    onLoad={() => setIframeLoading(false)}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: iframeLoading ? 0 : 1 }}
+                    transition={{ duration: 0.4 }}
+                  />
+                  {/* Intercepts clicks but lets scroll through */}
+                  {!iframeLoading && (
+                    <div
+                      className="absolute inset-0"
+                      style={{ pointerEvents: "all" }}
+                      onWheel={(e) => e.currentTarget.style.pointerEvents = "none"}
+                      onMouseLeave={(e) => e.currentTarget.style.pointerEvents = "all"}
+                    />
+                  )}
+                </>
+              ) : project.video ? (
+                <video
+                  src={project.video}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover object-top"
+                />
+              ) : project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 80vw"
+                />
+              ) : (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="font-display font-extrabold text-white/20 text-8xl tracking-tight">
+                    {project.title.charAt(0)}
+                  </span>
+                </div>
+              )}
 
               {/* Close button */}
               <button
                 ref={closeButtonRef}
                 onClick={onClose}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-[var(--card)]/90 backdrop-blur-sm flex items-center justify-center hover:bg-[var(--surface)] transition-colors focus:outline-none border border-[var(--border)]"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center hover:bg-white/25 transition-colors focus:outline-none border border-white/30"
                 aria-label="Modal schließen"
               >
-                <X size={20} weight="bold" className="text-foreground" />
+                <X size={20} weight="bold" className="text-white" />
               </button>
             </motion.div>
 
             {/* Content */}
             <motion.div
               layoutId={`project-content-${project.id}`}
-              className="flex-1 overflow-y-auto p-6 md:p-10"
+              className="flex-shrink-0 p-5 md:p-7"
             >
-              <div className="flex items-start justify-between gap-4 mb-6">
-                <div>
+              <div className="flex items-center justify-between gap-4">
+                <div className="flex items-center gap-3 min-w-0">
                   <motion.h2
                     layoutId={`project-title-${project.id}`}
-                    className="font-display font-extrabold text-foreground text-3xl md:text-4xl tracking-tight leading-none mb-2"
+                    className="font-display font-extrabold text-foreground text-xl md:text-2xl tracking-tight leading-none"
                   >
                     {project.title}
                   </motion.h2>
                   <motion.span
                     layoutId={`project-badge-${project.id}`}
-                    className={`inline-flex text-xs px-2.5 py-1 rounded-full font-body ${
+                    className={`flex-shrink-0 inline-flex text-xs px-2.5 py-1 rounded-full font-body ${
                       isLive
                         ? "gradient-btn"
                         : "bg-[var(--surface)] text-muted border border-[var(--border)]"
@@ -104,6 +176,16 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   >
                     {project.status}
                   </motion.span>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-body px-2.5 py-1 rounded-full bg-[var(--surface)] text-muted border border-[var(--border)]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
 
                 {project.url && (
@@ -118,30 +200,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   </a>
                 )}
               </div>
-
-              <p className="font-body text-base text-muted leading-relaxed mb-8">
-                {project.description}
-              </p>
-
-              <div>
-                <p className="font-body text-xs uppercase tracking-[4px] gradient-text mb-3">
-                  TECHNOLOGIEN
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs font-body px-3 py-1.5 rounded-full bg-[var(--surface)] text-muted border border-[var(--border)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </motion.div>
           </motion.div>
         </>
       )}
     </AnimatePresence>
   );
+
+  if (!mounted) return null;
+  return createPortal(modal, document.body);
 }

@@ -15,6 +15,9 @@ const projects: Project[] = [
     status: "Live",
     url: "https://www.carwellness-allgaeu.de/",
     previewColor: "linear-gradient(135deg, #7c3aed 0%, #2563eb 100%)",
+    image: "/carwellness-screenshot.jpg",
+    video: "/carwellness-scrollanimation.mp4",
+    embedUrl: "https://www.carwellness-allgaeu.de/",
   },
   {
     id: "alltec",
@@ -25,6 +28,8 @@ const projects: Project[] = [
     status: "In Arbeit",
     url: "https://alltec-anhaengervermietung.vercel.app/",
     previewColor: "linear-gradient(135deg, #c026d3 0%, #7c3aed 100%)",
+    image: "/alltec-screenshot.jpg",
+    embedUrl: "https://alltec-anhaengervermietung.vercel.app/",
   },
 ];
 
