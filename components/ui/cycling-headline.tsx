@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const fontClasses =
@@ -27,13 +27,23 @@ export default function CyclingHeadline({
 }: CyclingHeadlineProps) {
   const [phraseIndex, setPhraseIndex] = useState(0);
   // Track whether the initial shutter has already played
-  const hasLooped = useRef(false);
+  const [hasLooped, setHasLooped] = useState(false);
+
+  if (process.env.NODE_ENV === "development") {
+    phrases.forEach((p, i) => {
+      const count = (p.match(/ /g) || []).length;
+      if (count !== 1)
+        console.warn(
+          `CyclingHeadline: phrase[${i}] "${p}" must contain exactly one space.`
+        );
+    });
+  }
 
   useEffect(() => {
     let intervalId: ReturnType<typeof setInterval>;
 
     const timeoutId = setTimeout(() => {
-      hasLooped.current = true;
+      setHasLooped(true);
       setPhraseIndex((i) => (i + 1) % phrases.length);
       intervalId = setInterval(() => {
         setPhraseIndex((i) => (i + 1) % phrases.length);
@@ -52,7 +62,7 @@ export default function CyclingHeadline({
   const word2 = phrase.slice(spaceIdx + 1);
 
   // ── First load: shutter animation (same pattern as HeroShutterText) ───────
-  if (!hasLooped.current) {
+  if (!hasLooped) {
     let globalCharIdx = 0;
 
     const renderShutterLine = (text: string) => {
@@ -136,9 +146,8 @@ export default function CyclingHeadline({
     <div className="flex flex-wrap justify-center">
       {chars.map((char, i) => (
         <motion.span
-          key={i}
+          key={`${phraseIndex}-${i}`}
           className={`inline-block px-[0.5px] ${fontClasses}`}
-          style={{ whiteSpace: "pre" }}
           initial={{ opacity: 0, y: 10, filter: "blur(8px)" }}
           animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           transition={{ delay: delays[i], duration: 0.3, ease: "easeOut" }}
