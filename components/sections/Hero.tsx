@@ -111,54 +111,15 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Bottom group — pinned to bottom of section */}
-          <div className="pb-10 md:pb-14 flex flex-col items-center gap-6">
-            {/* Body copy */}
-            <motion.p
-              variants={itemVariants}
-              className="font-body text-base md:text-lg text-muted leading-relaxed max-w-md mx-auto"
-            >
-              Professionelle Webpräsenz für Allgäuer Handwerker — fair, direkt, ohne Umwege.
-            </motion.p>
-
-            {/* CTAs */}
-            <motion.div
-              variants={itemVariants}
-              className="flex gap-4 flex-wrap items-center justify-center"
-            >
+          {/* Bottom group */}
+          <div className="pb-10 md:pb-14 flex flex-col items-start gap-6">
+            <motion.div variants={itemVariants}>
               <button
                 onClick={() => scrollToSection("portfolio")}
                 className="gradient-btn font-body text-sm px-6 py-3 rounded-full focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none"
               >
                 Projekte ansehen
               </button>
-              <button
-                onClick={() => scrollToSection("about")}
-                className="font-body text-sm text-muted hover:text-foreground transition-colors duration-200 border border-[var(--border)] px-6 py-3 rounded-full hover:border-[var(--accent-1)] focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none"
-              >
-                Über mich
-              </button>
-            </motion.div>
-
-            {/* Social proof */}
-            <motion.div
-              variants={itemVariants}
-              className="flex items-center gap-3"
-            >
-              <div className="flex items-center">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0ea5e9] to-[#06b6d4] text-white flex items-center justify-center font-body text-[10px] font-semibold z-30 ring-2 ring-[var(--background)]">
-                  MK
-                </div>
-                <div className="w-8 h-8 rounded-full bg-[var(--card)] text-muted flex items-center justify-center font-body text-[10px] font-semibold -ml-2 z-20 ring-2 ring-[var(--background)]">
-                  SB
-                </div>
-                <div className="w-8 h-8 rounded-full bg-[var(--surface)] text-muted flex items-center justify-center font-body text-[10px] font-semibold -ml-2 z-10 ring-2 ring-[var(--background)]">
-                  TH
-                </div>
-              </div>
-              <p className="font-body text-xs text-muted">
-                Vertrauen von lokalen Betrieben im Allgäu
-              </p>
             </motion.div>
           </div>
         </motion.div>
