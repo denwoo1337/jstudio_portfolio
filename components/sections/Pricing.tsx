@@ -216,7 +216,7 @@ export default function Pricing() {
                 glowIntensity={1.8}
                 coneSpread={16}
                 edgeSensitivity={30}
-                animated
+                animated={pkg.featured}
                 colors={["#c084fc", "#f472b6", "#38bdf8"]}
                 className="flex flex-col p-7 h-full"
               >
@@ -323,7 +323,6 @@ export default function Pricing() {
                   glowIntensity={1.8}
                   coneSpread={16}
                   edgeSensitivity={30}
-                  animated
                   colors={["#c084fc", "#f472b6", "#38bdf8"]}
                   className="p-4 text-center"
                 >

@@ -225,7 +225,7 @@ const BorderGlow = ({
         />
       </span>
 
-      <div className="flex flex-col relative overflow-hidden rounded-[inherit] z-[1]">
+      <div className="flex flex-col relative rounded-[inherit] z-[1]">
         {children}
       </div>
     </div>
