@@ -69,8 +69,8 @@ export default function Hero() {
           bottomColor="#3200bd"
           intensity={1}
           rotationSpeed={0.3}
-          glowAmount={0.003}
-          pillarWidth={6.4}
+          glowAmount={isMobile ? 0.012 : 0.003}
+          pillarWidth={isMobile ? 2.5 : 6.4}
           pillarHeight={0.5}
           noiseIntensity={0}
           pillarRotation={218}
