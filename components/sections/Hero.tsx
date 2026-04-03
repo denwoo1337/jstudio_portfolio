@@ -65,31 +65,31 @@ export default function Hero() {
         className="absolute inset-0 flex flex-col px-6 md:px-12 lg:px-20 pt-20"
       >
         <LightPillar
-          topColor="#5227FF"
-          bottomColor="#FF9FFC"
-          intensity={1.2}
-          rotationSpeed={0.4}
-          glowAmount={0.001}
-          pillarWidth={4.9}
-          pillarHeight={0.4}
+          topColor="#ffffff"
+          bottomColor="#3200bd"
+          intensity={1}
+          rotationSpeed={0.3}
+          glowAmount={0.003}
+          pillarWidth={6.4}
+          pillarHeight={0.5}
           noiseIntensity={0}
-          pillarRotation={62}
+          pillarRotation={218}
           interactive={false}
           mixBlendMode="normal"
           quality="high"
         />
         {/* Overlay for text legibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/5 to-black/30 pointer-events-none" />
 
         {/* Content */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-10 flex flex-col items-center text-center flex-1 w-full max-w-3xl mx-auto"
+          className="relative z-10 flex flex-col items-start text-left flex-1 w-full max-w-xl"
         >
           {/* Headline group — vertically centered in remaining space */}
-          <div className="flex-1 flex flex-col items-center justify-center">
+          <div className="flex-1 flex flex-col items-start justify-center">
             {/* Eyebrow */}
             <motion.p
               variants={itemVariants}
@@ -128,15 +128,15 @@ export default function Hero() {
             >
               <button
                 onClick={() => scrollToSection("portfolio")}
-                className="gradient-btn font-body text-sm px-6 py-3 rounded-full"
+                className="gradient-btn font-body text-sm px-6 py-3 rounded-full focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none"
               >
                 Projekte ansehen
               </button>
               <button
                 onClick={() => scrollToSection("about")}
-                className="font-body text-sm text-muted hover:text-foreground transition-colors duration-200 border border-[var(--border)] px-6 py-3 rounded-full hover:border-[var(--accent-1)]"
+                className="font-body text-sm text-muted hover:text-foreground transition-colors duration-200 border border-[var(--border)] px-6 py-3 rounded-full hover:border-[var(--accent-1)] focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none"
               >
-                Über mich →
+                Über mich
               </button>
             </motion.div>
 
@@ -146,7 +146,7 @@ export default function Hero() {
               className="flex items-center gap-3"
             >
               <div className="flex items-center">
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#c026d3] text-white flex items-center justify-center font-body text-[10px] font-semibold z-30 ring-2 ring-[var(--background)]">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#0ea5e9] to-[#06b6d4] text-white flex items-center justify-center font-body text-[10px] font-semibold z-30 ring-2 ring-[var(--background)]">
                   MK
                 </div>
                 <div className="w-8 h-8 rounded-full bg-[var(--card)] text-muted flex items-center justify-center font-body text-[10px] font-semibold -ml-2 z-20 ring-2 ring-[var(--background)]">
