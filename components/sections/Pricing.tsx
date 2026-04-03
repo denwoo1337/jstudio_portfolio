@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
+import BorderGlow from "@/components/BorderGlow";
 
 type Package = {
   id: string;
@@ -192,20 +193,12 @@ export default function Pricing() {
             <motion.div
               key={pkg.id}
               variants={cardVariants}
-              className="relative flex flex-col rounded-2xl p-7 bg-[var(--card)]"
-              style={
-                pkg.featured
-                  ? {
-                      border: "2px solid rgba(168,85,247,0.6)",
-                      boxShadow: "0 0 30px rgba(124,58,237,0.2)",
-                    }
-                  : { border: "1px solid var(--border)" }
-              }
+              className="relative"
             >
-              {/* Featured badge */}
+              {/* Featured badge – outside BorderGlow to avoid overflow-clip */}
               {pkg.featured && pkg.featuredLabel && (
                 <div
-                  className="absolute left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest text-white whitespace-nowrap"
+                  className="absolute left-1/2 -translate-x-1/2 z-10 px-4 py-1 rounded-full text-[11px] font-bold uppercase tracking-widest text-white whitespace-nowrap"
                   style={{
                     top: "-14px",
                     background: "linear-gradient(90deg, #a855f7, #ec4899)",
@@ -215,64 +208,77 @@ export default function Pricing() {
                 </div>
               )}
 
-              {/* Package name */}
-              <p
-                className="font-body text-[11px] uppercase text-muted font-bold"
-                style={{ letterSpacing: "2px" }}
+              <BorderGlow
+                backgroundColor="#12121e"
+                borderRadius={16}
+                glowColor="40 80 80"
+                glowRadius={53}
+                glowIntensity={1.8}
+                coneSpread={16}
+                edgeSensitivity={30}
+                animated
+                colors={["#c084fc", "#f472b6", "#38bdf8"]}
+                className="flex flex-col p-7 h-full"
               >
-                {pkg.name}
-              </p>
+                {/* Package name */}
+                <p
+                  className="font-body text-[11px] uppercase text-muted font-bold"
+                  style={{ letterSpacing: "2px" }}
+                >
+                  {pkg.name}
+                </p>
 
-              {/* Price */}
-              <div className="mt-3 flex items-baseline gap-1">
-                <span className="font-body text-sm text-muted">{pkg.pricePrefix}</span>
-                <span className="font-display font-extrabold text-5xl gradient-text-animated leading-none">
-                  {pkg.price}
-                </span>
-                <span className="font-body text-lg text-muted ml-1">€</span>
-              </div>
+                {/* Price */}
+                <div className="mt-3 flex items-baseline gap-1">
+                  <span className="font-body text-sm text-muted">{pkg.pricePrefix}</span>
+                  <span className="font-display font-extrabold text-5xl gradient-text-animated leading-none">
+                    {pkg.price}
+                  </span>
+                  <span className="font-body text-lg text-muted ml-1">€</span>
+                </div>
 
-              {/* Tagline */}
-              <p className="mt-2 font-body text-sm text-muted leading-snug">
-                {pkg.tagline}
-                <br />
-                <span className="text-xs opacity-60">{pkg.vatNote}</span>
-              </p>
+                {/* Tagline */}
+                <p className="mt-2 font-body text-sm text-muted leading-snug">
+                  {pkg.tagline}
+                  <br />
+                  <span className="text-xs opacity-60">{pkg.vatNote}</span>
+                </p>
 
-              {/* Divider */}
-              <hr className="my-5 border-[var(--border)]" />
+                {/* Divider */}
+                <hr className="my-5 border-[var(--border)]" />
 
-              {/* Features */}
-              <ul className="flex-1 space-y-2.5">
-                {pkg.features.map((feature) => (
-                  <li
-                    key={feature}
-                    className="flex items-start gap-2.5 font-body text-sm text-muted"
-                  >
-                    <span className="text-purple-400 font-bold mt-0.5 flex-shrink-0">✓</span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
+                {/* Features */}
+                <ul className="flex-1 space-y-2.5">
+                  {pkg.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-start gap-2.5 font-body text-sm text-muted"
+                    >
+                      <span className="text-purple-400 font-bold mt-0.5 flex-shrink-0">✓</span>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
 
-              {/* CTA */}
-              <div className="mt-7">
-                {pkg.ctaPrimary ? (
-                  <button
-                    onClick={handleContactScroll}
-                    className="gradient-btn font-body text-sm px-6 py-3 rounded-full w-full"
-                  >
-                    {pkg.ctaLabel}
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleContactScroll}
-                    className="w-full font-body text-sm text-muted hover:text-foreground transition-colors py-3"
-                  >
-                    {pkg.ctaLabel}
-                  </button>
-                )}
-              </div>
+                {/* CTA */}
+                <div className="mt-7">
+                  {pkg.ctaPrimary ? (
+                    <button
+                      onClick={handleContactScroll}
+                      className="gradient-btn font-body text-sm px-6 py-3 rounded-full w-full"
+                    >
+                      {pkg.ctaLabel}
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleContactScroll}
+                      className="w-full font-body text-sm text-muted hover:text-foreground transition-colors py-3"
+                    >
+                      {pkg.ctaLabel}
+                    </button>
+                  )}
+                </div>
+              </BorderGlow>
             </motion.div>
           ))}
         </motion.div>
@@ -308,13 +314,25 @@ export default function Pricing() {
               <motion.div
                 key={addon.name}
                 variants={addonVariants}
-                className="bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 text-center"
               >
-                <div className="text-2xl mb-2">{addon.icon}</div>
-                <p className="font-body text-sm font-semibold text-foreground">{addon.name}</p>
-                <p className="font-display font-bold text-base gradient-text-animated mt-1">
-                  {addon.price}
-                </p>
+                <BorderGlow
+                  backgroundColor="#12121e"
+                  borderRadius={12}
+                  glowColor="40 80 80"
+                  glowRadius={53}
+                  glowIntensity={1.8}
+                  coneSpread={16}
+                  edgeSensitivity={30}
+                  animated
+                  colors={["#c084fc", "#f472b6", "#38bdf8"]}
+                  className="p-4 text-center"
+                >
+                  <div className="text-2xl mb-2">{addon.icon}</div>
+                  <p className="font-body text-sm font-semibold text-foreground">{addon.name}</p>
+                  <p className="font-display font-bold text-base gradient-text-animated mt-1">
+                    {addon.price}
+                  </p>
+                </BorderGlow>
               </motion.div>
             ))}
           </motion.div>
