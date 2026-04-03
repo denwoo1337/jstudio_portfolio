@@ -69,14 +69,14 @@ export default function Hero() {
           bottomColor="#3200bd"
           intensity={1}
           rotationSpeed={0.3}
-          glowAmount={isMobile ? 0.012 : 0.003}
-          pillarWidth={isMobile ? 2.5 : 6.4}
+          glowAmount={isMobile ? 0.006 : 0.003}
+          pillarWidth={isMobile ? 4.5 : 6.4}
           pillarHeight={0.5}
           noiseIntensity={0}
           pillarRotation={218}
           interactive={false}
           mixBlendMode="normal"
-          quality="high"
+          quality={isMobile ? "medium" : "high"}
         />
         {/* Overlay for text legibility */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/5 to-black/30 pointer-events-none" />
