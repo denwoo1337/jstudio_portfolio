@@ -10,17 +10,18 @@ interface ShutterLine {
 interface HeroShutterTextProps {
   lines: ShutterLine[];
   className?: string;
+  align?: "center" | "left";
 }
 
-export default function HeroShutterText({ lines, className = "" }: HeroShutterTextProps) {
+export default function HeroShutterText({ lines, className = "", align = "center" }: HeroShutterTextProps) {
   let globalCharIndex = 0;
 
   return (
-    <div className={`flex flex-col items-center text-center ${className}`}>
+    <div className={`flex flex-col ${align === "left" ? "items-start" : "items-center text-center"} ${className}`}>
       {lines.map((line, lineIdx) => {
         const chars = line.text.split("");
         return (
-          <div key={lineIdx} className="flex flex-wrap justify-center">
+          <div key={lineIdx} className={`flex flex-wrap ${align === "left" ? "justify-start" : "justify-center"}`}>
             {chars.map((char, charIdx) => {
               const delay = globalCharIndex * 0.04;
               globalCharIndex++;
@@ -45,7 +46,7 @@ export default function HeroShutterText({ lines, className = "" }: HeroShutterTe
                     initial={{ x: "-100%", opacity: 0 }}
                     animate={{ x: "100%", opacity: [0, 1, 0] }}
                     transition={{ duration: 0.7, delay, ease: "easeInOut" }}
-                    className="absolute inset-0 font-display font-extrabold tracking-tighter leading-none text-5xl md:text-6xl lg:text-8xl uppercase text-[#7c3aed] z-10 pointer-events-none"
+                    className="absolute inset-0 font-display font-extrabold tracking-tighter leading-none text-5xl md:text-6xl lg:text-8xl uppercase text-[#0ea5e9] z-10 pointer-events-none"
                     style={{ clipPath: "polygon(0 0, 100% 0, 100% 35%, 0 35%)" }}
                   >
                     {char}
@@ -69,7 +70,7 @@ export default function HeroShutterText({ lines, className = "" }: HeroShutterTe
                     initial={{ x: "-100%", opacity: 0 }}
                     animate={{ x: "100%", opacity: [0, 1, 0] }}
                     transition={{ duration: 0.7, delay: delay + 0.2, ease: "easeInOut" }}
-                    className="absolute inset-0 font-display font-extrabold tracking-tighter leading-none text-5xl md:text-6xl lg:text-8xl uppercase text-[#c026d3] z-10 pointer-events-none"
+                    className="absolute inset-0 font-display font-extrabold tracking-tighter leading-none text-5xl md:text-6xl lg:text-8xl uppercase text-[#06b6d4] z-10 pointer-events-none"
                     style={{ clipPath: "polygon(0 65%, 100% 65%, 100% 100%, 0 100%)" }}
                   >
                     {char}
