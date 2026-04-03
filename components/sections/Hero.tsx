@@ -95,17 +95,17 @@ export default function Hero() {
               variants={itemVariants}
               className="font-body text-[10px] uppercase tracking-[4px] gradient-text mb-6"
             >
-              WEB-AGENTUR · ALLGÄU
+              Webdesign & Entwicklung
             </motion.p>
 
             {/* Headline */}
             <motion.div variants={itemVariants}>
               <HeroShutterText
+                align="left"
                 lines={[
-                  { text: "Dein" },
-                  { text: "Betrieb." },
-                  { text: "Deine", gradient: true },
-                  { text: "Website.", gradient: true },
+                  { text: "DIGITALE" },
+                  { text: "PRÄSENZ." },
+                  { text: "MAXIMIERT.", gradient: true },
                 ]}
               />
             </motion.div>
