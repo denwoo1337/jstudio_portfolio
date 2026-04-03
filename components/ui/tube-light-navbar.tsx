@@ -80,7 +80,7 @@ export function TubeLightNavbar({ items, className, logo, cta }: TubeLightNavbar
                 key={item.name}
                 onClick={() => handleClick(item)}
                 className={cn(
-                  "relative cursor-pointer text-sm font-semibold px-4 py-1.5 rounded-full transition-colors focus:outline-none",
+                  "relative cursor-pointer text-sm font-semibold px-4 py-1.5 rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none",
                   "text-gray-400 hover:text-white",
                   isActive && "text-white",
                 )}
@@ -93,10 +93,10 @@ export function TubeLightNavbar({ items, className, logo, cta }: TubeLightNavbar
                     initial={false}
                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                   >
-                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-purple-500 rounded-t-full">
-                      <div className="absolute w-12 h-6 bg-purple-500/20 rounded-full blur-md -top-2 -left-2" />
-                      <div className="absolute w-8 h-6 bg-purple-500/20 rounded-full blur-md -top-1" />
-                      <div className="absolute w-4 h-4 bg-purple-500/20 rounded-full blur-sm top-0 left-2" />
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-sky-500 rounded-t-full">
+                      <div className="absolute w-12 h-6 bg-sky-500/20 rounded-full blur-md -top-2 -left-2" />
+                      <div className="absolute w-8 h-6 bg-sky-500/20 rounded-full blur-md -top-1" />
+                      <div className="absolute w-4 h-4 bg-sky-500/20 rounded-full blur-sm top-0 left-2" />
                     </div>
                   </motion.div>
                 )}
@@ -110,7 +110,7 @@ export function TubeLightNavbar({ items, className, logo, cta }: TubeLightNavbar
 
         {/* Hamburger — mobile only */}
         <button
-          className="sm:hidden ml-auto p-1.5 text-gray-400 hover:text-white focus:outline-none"
+          className="sm:hidden ml-auto p-1.5 text-gray-400 hover:text-white focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none rounded-md"
           onClick={() => setMenuOpen((v) => !v)}
           aria-label="Menü öffnen"
         >
@@ -136,11 +136,12 @@ export function TubeLightNavbar({ items, className, logo, cta }: TubeLightNavbar
                   onClick={() => handleClick(item)}
                   className={cn(
                     "w-full text-left px-5 py-3 text-sm font-semibold transition-colors focus:outline-none",
-                    isActive ? "text-white bg-white/5" : "text-gray-400 hover:text-white hover:bg-white/5"
+                    isActive ? "text-white bg-white/5" : "text-gray-400 hover:text-white hover:bg-white/5",
+                    "focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none"
                   )}
                 >
                   {isActive && (
-                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-purple-500 mr-2 mb-0.5" />
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-sky-500 mr-2 mb-0.5" />
                   )}
                   {item.name}
                 </button>

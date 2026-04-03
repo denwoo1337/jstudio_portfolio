@@ -146,11 +146,11 @@ export default function Pricing() {
     >
       {/* Background blobs */}
       <div
-        className="absolute top-[-60px] right-[-60px] w-[350px] h-[350px] rounded-full opacity-20 bg-[radial-gradient(circle,#7c3aed_0%,transparent_70%)] blur-[100px] animate-blob-float pointer-events-none"
+        className="absolute top-[-60px] right-[-60px] w-[350px] h-[350px] rounded-full opacity-20 bg-[radial-gradient(circle,#0ea5e9_0%,transparent_70%)] blur-[100px] animate-blob-float pointer-events-none"
         style={{ animationDelay: "-4s" }}
       />
       <div
-        className="absolute bottom-[-40px] left-[-40px] w-[300px] h-[300px] rounded-full opacity-15 bg-[radial-gradient(circle,#c026d3_0%,transparent_70%)] blur-[100px] animate-blob-float pointer-events-none"
+        className="absolute bottom-[-40px] left-[-40px] w-[300px] h-[300px] rounded-full opacity-15 bg-[radial-gradient(circle,#06b6d4_0%,transparent_70%)] blur-[100px] animate-blob-float pointer-events-none"
         style={{ animationDelay: "-10s" }}
       />
 
@@ -254,7 +254,7 @@ export default function Pricing() {
                       key={feature}
                       className="flex items-start gap-2.5 font-body text-sm text-muted"
                     >
-                      <span className="text-purple-400 font-bold mt-0.5 flex-shrink-0">✓</span>
+                      <span className="text-sky-400 font-bold mt-0.5 flex-shrink-0">✓</span>
                       {feature}
                     </li>
                   ))}

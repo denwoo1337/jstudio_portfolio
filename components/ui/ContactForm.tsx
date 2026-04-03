@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { useReducedMotion } from "framer-motion";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle } from "@phosphor-icons/react";
 
@@ -36,11 +37,14 @@ const labelClass = "block font-body text-xs uppercase tracking-[3px] text-muted 
 const errorClass = "mt-1.5 font-body text-xs text-red-500";
 
 export default function ContactForm() {
+  const prefersReducedMotion = useReducedMotion();
   const [form, setForm] = useState<FormData>({ name: "", email: "", message: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [serverError, setServerError] = useState<string | null>(null);
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -57,6 +61,8 @@ export default function ContactForm() {
     const validationErrors = validate(form);
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
+      if (validationErrors.name) nameRef.current?.focus();
+      else if (validationErrors.email) emailRef.current?.focus();
       return;
     }
 
@@ -120,9 +126,11 @@ export default function ContactForm() {
               Name
             </label>
             <input
+              ref={nameRef}
               id="name"
               name="name"
               type="text"
+              autoComplete="name"
               value={form.name}
               onChange={handleChange}
               placeholder="Dein Name"
@@ -142,9 +150,12 @@ export default function ContactForm() {
               E-Mail
             </label>
             <input
+              ref={emailRef}
               id="email"
               name="email"
               type="email"
+              autoComplete="email"
+              spellCheck={false}
               value={form.email}
               onChange={handleChange}
               placeholder="deine@email.de"
@@ -188,13 +199,13 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full relative overflow-hidden gradient-btn font-body text-sm px-6 py-3.5 rounded-full disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none"
+            className="w-full relative overflow-hidden gradient-btn font-body text-sm px-6 py-3.5 rounded-full disabled:opacity-60 disabled:cursor-not-allowed focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none"
           >
             {loading ? (
               <span className="flex items-center justify-center gap-2">
                 <motion.span
                   className="inline-block w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
-                  animate={{ rotate: 360 }}
+                  animate={prefersReducedMotion ? {} : { rotate: 360 }}
                   transition={{ duration: 0.8, repeat: Infinity, ease: "linear" }}
                 />
                 Wird gesendet...

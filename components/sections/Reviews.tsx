@@ -42,7 +42,7 @@ export default function Reviews() {
     <section id="reviews" className="relative z-10 py-24 md:py-32 bg-[var(--surface)] overflow-hidden">
       {/* Background blob */}
       <div
-        className="absolute top-[-80px] right-[-80px] w-[500px] h-[500px] rounded-full opacity-20 bg-[radial-gradient(circle,#7c3aed_0%,transparent_70%)] blur-[110px] animate-blob-float pointer-events-none"
+        className="absolute top-[-80px] right-[-80px] w-[500px] h-[500px] rounded-full opacity-20 bg-[radial-gradient(circle,#0ea5e9_0%,transparent_70%)] blur-[110px] animate-blob-float pointer-events-none"
         style={{ animationDelay: "-3s" }}
       />
       <motion.div

@@ -14,7 +14,7 @@ const projects: Project[] = [
     tags: ["Next.js", "Tailwind CSS", "Framer Motion"],
     status: "Live",
     url: "https://www.carwellness-allgaeu.de/",
-    previewColor: "linear-gradient(135deg, #7c3aed 0%, #2563eb 100%)",
+    previewColor: "linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%)",
     image: "/carwellness-screenshot.jpg",
     video: "/carwellness-scrollanimation.mp4",
     embedUrl: "https://www.carwellness-allgaeu.de/",
@@ -27,7 +27,7 @@ const projects: Project[] = [
     tags: ["Next.js", "Tailwind CSS"],
     status: "In Arbeit",
     url: "https://alltec-anhaengervermietung.vercel.app/",
-    previewColor: "linear-gradient(135deg, #c026d3 0%, #7c3aed 100%)",
+    previewColor: "linear-gradient(135deg, #06b6d4 0%, #0ea5e9 100%)",
     image: "/alltec-screenshot.jpg",
     embedUrl: "https://alltec-anhaengervermietung.vercel.app/",
   },
@@ -56,7 +56,7 @@ export default function Portfolio() {
     <section id="portfolio" className="relative z-10 py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-[var(--background)] overflow-hidden">
       {/* Background blob */}
       <div
-        className="absolute bottom-[-100px] left-[-80px] w-[450px] h-[450px] rounded-full opacity-15 bg-[radial-gradient(circle,#7c3aed_0%,transparent_70%)] blur-[110px] animate-blob-float pointer-events-none"
+        className="absolute bottom-[-100px] left-[-80px] w-[450px] h-[450px] rounded-full opacity-15 bg-[radial-gradient(circle,#0ea5e9_0%,transparent_70%)] blur-[110px] animate-blob-float pointer-events-none"
         style={{ animationDelay: "-10s" }}
       />
 
@@ -106,9 +106,9 @@ export default function Portfolio() {
           </motion.div>
 
           {/* CTA placeholder card */}
-          <motion.div
+          <motion.button
             variants={cardVariants}
-            className="flex-1 rounded-2xl p-6 flex flex-col items-center justify-center text-center min-h-[140px] cursor-pointer transition-all duration-300 group relative overflow-hidden"
+            className="flex-1 rounded-2xl p-6 flex flex-col items-center justify-center text-center min-h-[140px] cursor-pointer transition-all duration-300 group relative overflow-hidden focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none w-full"
             style={{
               background: "var(--card)",
               border: "1px dashed rgba(124,58,237,0.35)",
@@ -124,9 +124,9 @@ export default function Portfolio() {
               Dein Betrieb könnte hier stehen
             </p>
             <p className="font-body text-xs text-muted">
-              Jetzt anfragen →
+              Jetzt anfragen
             </p>
-          </motion.div>
+          </motion.button>
         </div>
       </motion.div>
 

@@ -44,11 +44,11 @@ export default function Contact() {
     <section id="contact" className="relative z-10 py-24 md:py-32 px-6 md:px-12 lg:px-20 bg-[var(--background)] overflow-hidden">
       {/* Background blob */}
       <div
-        className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full opacity-20 bg-[radial-gradient(circle,#c026d3_0%,transparent_70%)] blur-[120px] animate-blob-float pointer-events-none"
+        className="absolute bottom-[-100px] left-[-100px] w-[500px] h-[500px] rounded-full opacity-20 bg-[radial-gradient(circle,#06b6d4_0%,transparent_70%)] blur-[120px] animate-blob-float pointer-events-none"
         style={{ animationDelay: "-8s" }}
       />
       <div
-        className="absolute top-[-60px] right-[-60px] w-[350px] h-[350px] rounded-full opacity-15 bg-[radial-gradient(circle,#7c3aed_0%,transparent_70%)] blur-[90px] animate-blob-float pointer-events-none"
+        className="absolute top-[-60px] right-[-60px] w-[350px] h-[350px] rounded-full opacity-15 bg-[radial-gradient(circle,#0ea5e9_0%,transparent_70%)] blur-[90px] animate-blob-float pointer-events-none"
         style={{ animationDelay: "-15s" }}
       />
 
@@ -96,12 +96,12 @@ export default function Contact() {
                 {href ? (
                   <a
                     href={href}
-                    className="flex items-center gap-4 bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 hover:border-[rgba(124,58,237,0.4)] transition-all duration-200 group"
+                    className="flex items-center gap-4 bg-[var(--card)] border border-[var(--border)] rounded-xl p-4 hover:border-[rgba(14,165,233,0.4)] transition-all duration-200 group"
                     style={{ transition: "box-shadow 0.2s, border-color 0.2s" }}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 20px rgba(124,58,237,0.15)"; }}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 20px rgba(14,165,233,0.15)"; }}
                     onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.boxShadow = "none"; }}
                   >
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#c026d3] flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0ea5e9] to-[#06b6d4] flex items-center justify-center flex-shrink-0">
                       <Icon size={18} weight="light" className="text-white" />
                     </div>
                     <div>
@@ -115,7 +115,7 @@ export default function Contact() {
                   </a>
                 ) : (
                   <div className="flex items-center gap-4 bg-[var(--card)] border border-[var(--border)] rounded-xl p-4">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#c026d3] flex items-center justify-center flex-shrink-0">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#0ea5e9] to-[#06b6d4] flex items-center justify-center flex-shrink-0">
                       <Icon size={18} weight="light" className="text-white" />
                     </div>
                     <div>

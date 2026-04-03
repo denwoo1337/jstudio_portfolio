@@ -66,9 +66,9 @@ const dotVariants: Variants = {
     opacity: 1,
     scale: 1,
     boxShadow: [
-      "0 0 0px 0px rgba(124,58,237,0)",
-      "0 0 20px 6px rgba(124,58,237,0.55)",
-      "0 0 10px 2px rgba(124,58,237,0.2)",
+      "0 0 0px 0px rgba(14,165,233,0)",
+      "0 0 20px 6px rgba(14,165,233,0.55)",
+      "0 0 10px 2px rgba(14,165,233,0.2)",
     ],
   },
 };
@@ -112,11 +112,11 @@ export default function Process() {
     >
       {/* Background blobs */}
       <div
-        className="absolute top-[-60px] left-[-60px] w-[350px] h-[350px] rounded-full opacity-20 bg-[radial-gradient(circle,#7c3aed_0%,transparent_70%)] blur-[100px] animate-blob-float pointer-events-none"
+        className="absolute top-[-60px] left-[-60px] w-[350px] h-[350px] rounded-full opacity-20 bg-[radial-gradient(circle,#0ea5e9_0%,transparent_70%)] blur-[100px] animate-blob-float pointer-events-none"
         style={{ animationDelay: "-2s" }}
       />
       <div
-        className="absolute bottom-[-40px] right-[-40px] w-[300px] h-[300px] rounded-full opacity-15 bg-[radial-gradient(circle,#c026d3_0%,transparent_70%)] blur-[100px] animate-blob-float pointer-events-none"
+        className="absolute bottom-[-40px] right-[-40px] w-[300px] h-[300px] rounded-full opacity-15 bg-[radial-gradient(circle,#06b6d4_0%,transparent_70%)] blur-[100px] animate-blob-float pointer-events-none"
         style={{ animationDelay: "-8s" }}
       />
 
@@ -162,7 +162,7 @@ export default function Process() {
                   <motion.div
                     variants={dotVariants}
                     transition={dotTransition}
-                    className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#c026d3] flex items-center justify-center text-white flex-shrink-0"
+                    className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br from-[#0ea5e9] to-[#06b6d4] flex items-center justify-center text-white flex-shrink-0"
                     style={{ fontSize: "18px" }}
                   >
                     {step.icon}
@@ -174,7 +174,7 @@ export default function Process() {
                       className="w-0.5 flex-1 mt-1"
                       style={{
                         background:
-                          "linear-gradient(to bottom, rgba(124,58,237,0.5), transparent)",
+                          "linear-gradient(to bottom, rgba(14,165,233,0.5), transparent)",
                         transformOrigin: "top",
                         minHeight: "48px",
                       }}

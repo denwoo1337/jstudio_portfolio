@@ -6,14 +6,14 @@
   --background:  #050508;
   --foreground:  #f0f0ff;
   --muted:       #6b7180;
-  --border:      rgba(120, 60, 220, 0.18);
+  --border:      rgba(14, 165, 233, 0.18);
   --surface:     #0d0d16;
   --card:        #12121e;
-  --accent-1:    #7c3aed;
-  --accent-2:    #c026d3;
-  --accent-3:    #2563eb;
-  --glow-1:      rgba(124, 58, 237, 0.35);
-  --glow-2:      rgba(192, 38, 211, 0.35);
+  --accent-1:    #0ea5e9;
+  --accent-2:    #06b6d4;
+  --accent-3:    #0369a1;
+  --glow-1:      rgba(14, 165, 233, 0.35);
+  --glow-2:      rgba(6, 182, 212, 0.35);
   --dark-section: #050508;
 }
 
@@ -91,5 +91,23 @@ html {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* ── Reduced motion ──────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob-float,
+  .gradient-text-animated {
+    animation: none !important;
+  }
+
+  /* Framer Motion respects this automatically via its built-in hook,
+     but disable CSS transitions on decorative elements just in case */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

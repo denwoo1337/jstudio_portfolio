@@ -30,11 +30,11 @@ export default function ProjectCard({ project, onClick, className = "" }: Projec
       layoutId={`project-${project.id}`}
       onClick={() => onClick(project)}
       className={`bg-[var(--card)] rounded-2xl overflow-hidden cursor-pointer group border border-[var(--border)] flex flex-col ${className}`}
-      whileHover={{ y: -4, boxShadow: "0 0 40px rgba(124,58,237,0.25)" }}
+      whileHover={{ y: -4, boxShadow: "0 0 40px rgba(14,165,233,0.25)" }}
       transition={{ type: "spring", stiffness: 300, damping: 25 }}
     >
       {/* Gradient top border line */}
-      <div className="h-[2px] w-full bg-gradient-to-r from-[#7c3aed] via-[#c026d3] to-[#2563eb] opacity-70 flex-shrink-0" />
+      <div className="h-[2px] w-full bg-gradient-to-r from-[#0ea5e9] via-[#06b6d4] to-[#0369a1] opacity-70 flex-shrink-0" />
 
       {/* Preview */}
       <motion.div

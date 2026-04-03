@@ -14,7 +14,7 @@ function Logo() {
   return (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="flex items-baseline gap-0 focus:outline-none whitespace-nowrap"
+      className="flex items-baseline gap-0 focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none rounded-sm whitespace-nowrap"
       aria-label="Zurück nach oben"
     >
       <span className="font-display font-normal text-gray-200 text-base tracking-tight">
@@ -37,13 +37,13 @@ function CTAButton() {
     <div className="relative group">
       <div
         className="absolute inset-0 -m-2 rounded-full
-                   bg-purple-400 opacity-20 filter blur-lg pointer-events-none
+                   bg-sky-400 opacity-20 filter blur-lg pointer-events-none
                    transition-all duration-300 ease-out
                    group-hover:opacity-40 group-hover:blur-xl group-hover:-m-3"
       />
       <button
         onClick={handleClick}
-        className="relative z-10 px-4 py-1.5 text-xs sm:text-sm font-semibold gradient-btn rounded-full focus:outline-none whitespace-nowrap"
+        className="relative z-10 px-4 py-1.5 text-xs sm:text-sm font-semibold gradient-btn rounded-full focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none whitespace-nowrap"
       >
         Gespräch starten
       </button>

@@ -69,7 +69,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
             {/* Gradient top border */}
-            <div className="h-[2px] w-full bg-gradient-to-r from-[#7c3aed] via-[#c026d3] to-[#2563eb] flex-shrink-0" />
+            <div className="h-[2px] w-full bg-gradient-to-r from-[#0ea5e9] via-[#06b6d4] to-[#0369a1] flex-shrink-0" />
 
             {/* Header preview */}
             <motion.div
@@ -151,7 +151,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <button
                 ref={closeButtonRef}
                 onClick={onClose}
-                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center hover:bg-white/25 transition-colors focus:outline-none border border-white/30"
+                className="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center hover:bg-white/25 transition-colors focus-visible:ring-2 focus-visible:ring-sky-400/60 focus-visible:outline-none border border-white/30"
                 aria-label="Modal schließen"
               >
                 <X size={20} weight="bold" className="text-white" />

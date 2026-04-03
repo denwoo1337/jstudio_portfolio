@@ -8,9 +8,9 @@ interface ReviewCardProps {
 export default function ReviewCard({ name, role, text, initials }: ReviewCardProps) {
   return (
     <div
-      className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6 min-w-[280px] max-w-[320px] flex-shrink-0 transition-all duration-300 hover:border-[rgba(124,58,237,0.4)]"
+      className="bg-[var(--card)] border border-[var(--border)] rounded-2xl p-6 min-w-[280px] max-w-[320px] flex-shrink-0 transition-all duration-300 hover:border-[rgba(14,165,233,0.4)]"
       style={{ transition: "box-shadow 0.3s" }}
-      onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 0 24px rgba(124,58,237,0.2)"; }}
+      onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.boxShadow = "0 0 24px rgba(14,165,233,0.2)"; }}
       onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.boxShadow = "none"; }}
     >
       <div className="gradient-text text-sm mb-3" aria-label="5 von 5 Sternen">
@@ -21,7 +21,7 @@ export default function ReviewCard({ name, role, text, initials }: ReviewCardPro
 
       <div className="flex items-center gap-3">
         <div
-          className="w-9 h-9 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#c026d3] text-white font-display font-bold text-xs flex items-center justify-center flex-shrink-0"
+          className="w-9 h-9 rounded-full bg-gradient-to-br from-[#0ea5e9] to-[#06b6d4] text-white font-display font-bold text-xs flex items-center justify-center flex-shrink-0"
           aria-hidden="true"
         >
           {initials}

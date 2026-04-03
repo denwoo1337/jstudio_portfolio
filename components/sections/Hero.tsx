@@ -58,11 +58,11 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="sticky top-0 z-0 min-h-[100dvh] overflow-hidden bg-black"
+      className="sticky top-0 z-0 min-h-[100dvh] bg-black flex flex-col"
     >
       <motion.div
         style={scrollStyle}
-        className="absolute inset-0 flex flex-col px-6 md:px-12 lg:px-20 pt-20"
+        className="absolute inset-0 flex flex-col px-6 md:px-12 lg:px-20 pt-20 overflow-hidden"
       >
         <LightPillar
           topColor="#ffffff"
@@ -86,10 +86,10 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="relative z-10 flex flex-col items-start text-left flex-1 w-full max-w-xl"
+          className="relative z-10 flex flex-col items-start text-left flex-1 w-full justify-center gap-8"
         >
-          {/* Headline group — vertically centered in remaining space */}
-          <div className="flex-1 flex flex-col items-start justify-center">
+          {/* Headline group */}
+          <div className="flex flex-col items-start">
             {/* Eyebrow */}
             <motion.p
               variants={itemVariants}
@@ -111,7 +111,7 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Bottom group */}
+          {/* CTA */}
           <div className="pb-10 md:pb-14 flex flex-col items-start gap-6">
             <motion.div variants={itemVariants}>
               <button
