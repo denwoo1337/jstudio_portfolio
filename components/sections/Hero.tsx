@@ -10,6 +10,7 @@ import {
   type Variants,
 } from "framer-motion";
 import HeroShutterText from "@/components/ui/hero-shutter-text";
+import LightPillar from "@/components/ui/LightPillar";
 
 const containerVariants: Variants = {
   hidden: {},
@@ -43,46 +44,42 @@ export default function Hero() {
 
   const { scrollY } = useScroll();
 
-  const scaleRaw = useTransform(scrollY, [0, 700], [1, 0.9]);
   const blurRaw = useTransform(scrollY, [0, 700], [0, 10]);
   const opacityRaw = useTransform(scrollY, [0, 700], [1, 0.55]);
 
   const springConfig = { stiffness: 80, damping: 25, mass: 0.5 };
-  const scale = useSpring(scaleRaw, springConfig);
   const blurPx = useSpring(blurRaw, springConfig);
   const opacity = useSpring(opacityRaw, springConfig);
 
   const filter = useMotionTemplate`blur(${blurPx}px)`;
 
-  const scrollStyle = isMobile ? {} : { filter, opacity, scale };
+  const scrollStyle = isMobile ? {} : { filter, opacity };
 
   return (
     <section
       id="hero"
-      className="sticky top-0 z-0 min-h-[100dvh] overflow-hidden"
+      className="sticky top-0 z-0 min-h-[100dvh] overflow-hidden bg-black"
     >
       <motion.div
         style={scrollStyle}
         className="absolute inset-0 flex flex-col px-6 md:px-12 lg:px-20 pt-20"
       >
-        {/* Video Background */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-          src="/hero-bg-loop.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
+        <LightPillar
+          topColor="#5227FF"
+          bottomColor="#FF9FFC"
+          intensity={1.2}
+          rotationSpeed={0.4}
+          glowAmount={0.001}
+          pillarWidth={4.9}
+          pillarHeight={0.4}
+          noiseIntensity={0}
+          pillarRotation={62}
+          interactive={false}
+          mixBlendMode="normal"
+          quality="high"
         />
-        {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/50 pointer-events-none" />
-
-        {/* Background blob */}
-        <div
-          className="absolute top-[40%] left-[40%] w-[350px] h-[350px] rounded-full opacity-15 bg-[radial-gradient(circle,#2563eb_0%,transparent_70%)] blur-[90px] animate-blob-float pointer-events-none"
-          style={{ animationDelay: "-13s" }}
-        />
+        {/* Overlay for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/60 pointer-events-none" />
 
         {/* Content */}
         <motion.div
