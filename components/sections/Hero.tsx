@@ -58,7 +58,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="sticky top-0 z-0 min-h-[100dvh] bg-black flex flex-col"
+      className="sticky top-0 z-0 min-h-[100svh] bg-black flex flex-col"
     >
       <motion.div
         style={scrollStyle}
