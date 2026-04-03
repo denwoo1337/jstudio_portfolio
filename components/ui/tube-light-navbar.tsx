@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { LucideIcon, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import BorderGlow from "@/components/BorderGlow"
 
 interface NavItem {
   name: string
@@ -69,68 +68,55 @@ export function TubeLightNavbar({ items, className, logo, cta }: TubeLightNavbar
       )}
     >
       {/* Desktop navbar */}
-      <BorderGlow
-        backgroundColor="#1f1f1f70"
-        borderRadius={9999}
-        glowColor="40 80 80"
-        glowRadius={53}
-        glowIntensity={1.8}
-        coneSpread={16}
-        edgeSensitivity={30}
-        animated
-        colors={["#c084fc", "#f472b6", "#38bdf8"]}
-        className="shadow-lg"
-      >
-        <div className="flex items-center gap-3 backdrop-blur-md py-2 px-3">
-          {logo && <div className="pl-2 pr-1">{logo}</div>}
+      <div className="flex items-center gap-3 bg-[#1f1f1f70] border border-white/10 backdrop-blur-md py-2 px-3 rounded-full shadow-lg">
+        {logo && <div className="pl-2 pr-1">{logo}</div>}
 
-          {/* Nav items — hidden on mobile */}
-          <nav className="hidden sm:flex items-center">
-            {items.map((item) => {
-              const isActive = activeTab === item.name
-              return (
-                <button
-                  key={item.name}
-                  onClick={() => handleClick(item)}
-                  className={cn(
-                    "relative cursor-pointer text-sm font-semibold px-4 py-1.5 rounded-full transition-colors focus:outline-none",
-                    "text-gray-400 hover:text-white",
-                    isActive && "text-white",
-                  )}
-                >
-                  {item.name}
-                  {isActive && (
-                    <motion.div
-                      layoutId="tube-lamp"
-                      className="absolute inset-0 w-full bg-white/5 rounded-full -z-10"
-                      initial={false}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                    >
-                      <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-purple-500 rounded-t-full">
-                        <div className="absolute w-12 h-6 bg-purple-500/20 rounded-full blur-md -top-2 -left-2" />
-                        <div className="absolute w-8 h-6 bg-purple-500/20 rounded-full blur-md -top-1" />
-                        <div className="absolute w-4 h-4 bg-purple-500/20 rounded-full blur-sm top-0 left-2" />
-                      </div>
-                    </motion.div>
-                  )}
-                </button>
-              )
-            })}
-          </nav>
+        {/* Nav items — hidden on mobile */}
+        <nav className="hidden sm:flex items-center">
+          {items.map((item) => {
+            const isActive = activeTab === item.name
+            return (
+              <button
+                key={item.name}
+                onClick={() => handleClick(item)}
+                className={cn(
+                  "relative cursor-pointer text-sm font-semibold px-4 py-1.5 rounded-full transition-colors focus:outline-none",
+                  "text-gray-400 hover:text-white",
+                  isActive && "text-white",
+                )}
+              >
+                {item.name}
+                {isActive && (
+                  <motion.div
+                    layoutId="tube-lamp"
+                    className="absolute inset-0 w-full bg-white/5 rounded-full -z-10"
+                    initial={false}
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  >
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-purple-500 rounded-t-full">
+                      <div className="absolute w-12 h-6 bg-purple-500/20 rounded-full blur-md -top-2 -left-2" />
+                      <div className="absolute w-8 h-6 bg-purple-500/20 rounded-full blur-md -top-1" />
+                      <div className="absolute w-4 h-4 bg-purple-500/20 rounded-full blur-sm top-0 left-2" />
+                    </div>
+                  </motion.div>
+                )}
+              </button>
+            )
+          })}
+        </nav>
 
-          {/* CTA — hidden on mobile */}
-          {cta && <div className="hidden sm:block pl-1 pr-1">{cta}</div>}
+        {/* CTA — hidden on mobile */}
+        {cta && <div className="hidden sm:block pl-1 pr-1">{cta}</div>}
 
-          {/* Hamburger — mobile only */}
-          <button
-            className="sm:hidden ml-auto p-1.5 text-gray-400 hover:text-white focus:outline-none"
-            onClick={() => setMenuOpen((v) => !v)}
-            aria-label="Menü öffnen"
-          >
-            {menuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </BorderGlow>
+        {/* Hamburger — mobile only */}
+        <button
+          className="sm:hidden ml-auto p-1.5 text-gray-400 hover:text-white focus:outline-none"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Menü öffnen"
+        >
+          {menuOpen ? <X size={20} /> : <Menu size={20} />}
+        </button>
+      </div>
 
       {/* Mobile dropdown */}
       <AnimatePresence>
